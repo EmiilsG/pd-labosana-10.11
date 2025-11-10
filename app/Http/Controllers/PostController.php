@@ -28,9 +28,9 @@ class PostController extends Controller
         return redirect('/posts');
     }
 
-    public function show()
+    public function show($id)
     {
-        $post = Post::find();
+        $post = Post::find($id);
         return view('posts.show', ['post' => $post]);
     }
 
@@ -49,7 +49,7 @@ class PostController extends Controller
         ];
         $post->update($data);
 
-        return rediredct('/posts/' . $post->id);
+        return redirect('/posts/' . $post->id);
     }
 
     public function destroy($id)

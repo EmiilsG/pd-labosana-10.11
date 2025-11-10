@@ -1,7 +1,7 @@
 <x-app-layout>
     <h1>Edit post</h1>
 
-    <form action="/posts/{{$post->id}}" method="post">
+    <form action="/posts/{{$post->id}}/" method="post">
         @csrf
         @method('PUT')
 
@@ -13,4 +13,5 @@
         <br>
         <input type="submit" value="Update">
     </form>
+     <a href="/posts">All posts</a>
 </x-app-layout>

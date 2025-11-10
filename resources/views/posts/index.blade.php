@@ -8,7 +8,7 @@
                 <p>Content: {{ $post->content }}</p>
                 <div>
                     <a href="/posts/{{$post->id}}/show">Show</a>
-                    <a href="/posts/{{$post->id}}">Edit</a>
+                    <a href="/posts/{{$post->id}}/">Edit</a>
                     <form action="/posts/{{$post->id}}" method="post">
                         @csrf
                         @method('DELETE')
