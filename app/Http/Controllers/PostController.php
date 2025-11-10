@@ -49,12 +49,12 @@ class PostController extends Controller
         ];
         $post->update($data);
 
-        return redirect('/posts/' . $post->id);
+        return rediredct('/posts/' . $post->id);
     }
 
     public function destroy($id)
     {
-        Post::find($id);
+       $post =  Post::find($id);
         $post->delete();
         return redirect('/posts/');
     }
