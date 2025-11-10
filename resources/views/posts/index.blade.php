@@ -7,9 +7,12 @@
                 <h2>Title: {{ $post->title }}</h2>
                 <p>Content: {{ $post->content }}</p>
                 <div>
-                    <a href="/posts">Show</a>
-                    <a href="/posts/edit">Edit</a>
-                    <a href="/posts/destroy">Delete</a>
+                    <a href="/posts/{{$post->id}}/show">Show</a>
+                    <a href="/posts/{{$post->edit}}">Edit</a>
+                    <form action="/posts/{{$post->id}}" method="post">
+                        @csrf
+                        @method('DELETE')
+                    <input type="submit" value="Delete">
                 </div>
             </li>
         @endforeach

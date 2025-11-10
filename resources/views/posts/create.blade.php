@@ -1,7 +1,9 @@
 <x-app-layout>
     <h1>Create post</h1>
 
-    <form>
+    <form action="/posts/store" method="post">
+        @csrf
+
         <label for="title">Title: </label>
         <input type="text" id="title" name="title">
         <br>

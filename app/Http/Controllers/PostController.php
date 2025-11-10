@@ -18,9 +18,12 @@ class PostController extends Controller
         return view('posts.create');
     }
 
-    public function store(Request $req)
-    {
-        Post::create([]);
+    public function store(Request $request){
+        $data = [
+            'title' => $request->title,
+             'content'=> $request->content,
+        ];
+        Post::create($data);
 
         return redirect('/posts');
     }
@@ -37,19 +40,22 @@ class PostController extends Controller
         return view('posts.edit', ['post' => $post]);
     }
 
-    public function update(Request $req, $id)
+    public function update(Request $request, $id)
     {
         $post = Post::find($id);
+        $data = [
+            'title' => $request->title,
+             'content'=> $request->content,
+        ];
+        $post->update($data);
 
-        $post->update([]);
-
-        return redirect('/posts');
+        return redirect('/posts/' . $post->id);
     }
 
     public function destroy($id)
     {
         Post::find($id);
         $post->delete();
-        return redirect('/posts');
+        return redirect('/posts/');
     }
 }
